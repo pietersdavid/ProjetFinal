@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjetFinal</string>
+    <string name="credit">PIETERS David 2021</string>
+    <string name="eseo_logo">logo eseo</string>
+    <string name="start_application">Démarrer l\'application</string>
+    <string name="distance_button_text">Distance de l\'ESEO</string>
+    <string name="history_button_text">Historique des distances</string>
+    <string name="history_navbar_title">Historique</string>
+    <string name="distance_navbar_title">Distance</string>
+    <string name="parameters_navbar_title">Parametres</string>
+</resources>
