@@ -23,4 +23,7 @@
     <string name="menu_distance">Distance from eseo</string>
     <string name="menu_history">History of positions</string>
     <string name="distance_impossible_location">Localisation not possible</string>
+    <string name="distance_alert_title">Permission required</string>
+    <string name="distance_alert_content">You must have location permission enabled, go into your parameters and turn on location permission.</string>
+    <string name="settings_recycler_location_parameters">Application parameters</string>
 </resources>

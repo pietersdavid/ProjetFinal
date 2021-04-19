@@ -12,13 +12,15 @@
     <string name="distance_add_toast">Position added !</string>
     <string name="distance_distance_text">Distance from ESEO</string>
     <string name="distance_impossible_location">Localisation not possible</string>
+    <string name="distance_alert_title">Permission required</string>
+    <string name="distance_alert_content">You must have location permission enabled, go into your parameters and turn on location permission.</string>
 
     <string name="history_navbar_title">History</string>
     <string name="history_reset_button">Reset history</string>
 
     <string name="settings_navbar_title">Settings</string>
-    <string name="settings_recycler_settings" translatable="false">Settings</string>
-    <string name="settings_recycler_location_parameters">Paramètres de localisation</string>
+    <string name="settings_recycler_settings">Settings</string>
+    <string name="settings_recycler_location_parameters">Application parameters</string>
     <string name="settings_recycler_location_eseo">ESEO location</string>
     <string name="settings_recycler_website">ESEO web site</string>
     <string name="settings_recycler_mail">Contact us</string>

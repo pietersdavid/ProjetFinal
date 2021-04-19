@@ -4,16 +4,19 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.example.projetfinal.data.LocalPreferences
 import com.example.projetfinal.R
+import com.example.projetfinal.data.LocalPreferences
 import com.example.projetfinal.databinding.ActivityDistanceBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.CancellationTokenSource
+
 
 // Activity to check distance from ESEO
 class DistanceActivity : AppCompatActivity() {
@@ -35,6 +38,8 @@ class DistanceActivity : AppCompatActivity() {
         binding.distanceToolbar.setNavigationOnClickListener {
             finish()
         }
+
+        binding.distanceSaveButton.setVisibility(View.INVISIBLE);
 
         // Set button to add position to history
         binding.distanceSaveButton.setOnClickListener {
@@ -66,7 +71,7 @@ class DistanceActivity : AppCompatActivity() {
         }
     }
 
-    // On permission request responce
+    // On permission request response
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
@@ -77,8 +82,12 @@ class DistanceActivity : AppCompatActivity() {
                     // Permission obtenue, Nous continuons la suite de la logique.
                     getLocation()
                 } else {
-                    // TODO
-                    // Permission non accepté, expliqué ici via une activité ou une dialog pourquoi nous avons besoin de la permission
+                    val alertDialog = AlertDialog.Builder(this).create()
+                    alertDialog.setTitle(getResources().getString(R.string.distance_alert_title))
+                    alertDialog.setMessage(getResources().getString(R.string.distance_alert_content))
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK"
+                    ) { dialog, which -> dialog.dismiss() }
+                    alertDialog.show()
                 }
                 return
             }
@@ -90,10 +99,15 @@ class DistanceActivity : AppCompatActivity() {
         // Check if localisation is granted
         if (hasPermission()) {
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return
-            }
             // Get the current location
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                val alertDialog = AlertDialog.Builder(this).create()
+                alertDialog.setTitle(getResources().getString(R.string.distance_alert_title))
+                alertDialog.setMessage(getResources().getString(R.string.distance_alert_content))
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK"
+                ) { dialog, which -> dialog.dismiss() }
+                alertDialog.show()
+            }
             fusedLocationClient.getCurrentLocation(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY, CancellationTokenSource().token)
                     .addOnSuccessListener { computeDistance(it) }
                     .addOnFailureListener {
@@ -132,6 +146,9 @@ class DistanceActivity : AppCompatActivity() {
         // If distance <= 300m -> User is at ESEO
         else
             binding.distanceText.setText("Vous êtes à l'eseo !")
+
+        // User can save the position
+        binding.distanceSaveButton.setVisibility(View.VISIBLE);
 
     }
 }

@@ -4,13 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetfinal.R
-import com.example.projetfinal.adapter.SettingsItem
 import com.example.projetfinal.adapter.SettingsAdapter
+import com.example.projetfinal.adapter.SettingsItem
 import com.example.projetfinal.databinding.ActivityParameterBinding
 
 class SettingsActivity : AppCompatActivity() {
@@ -55,7 +54,9 @@ class SettingsActivity : AppCompatActivity() {
 
                 SettingsItem(getResources().getString(R.string.settings_recycler_settings), R.drawable.ic_baseline_settings_24_dark) {
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    startActivity(intent);
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
                 },
 
                 SettingsItem(getResources().getString(R.string.settings_recycler_location_parameters), R.drawable.location_parameters) {

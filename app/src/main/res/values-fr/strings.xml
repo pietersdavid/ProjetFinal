@@ -24,4 +24,6 @@
     <string name="settings_recycler_location_eseo">Position de l\'ESEO</string>
     <string name="settings_recycler_website">Site web de l\'ESEO</string>
     <string name="settings_recycler_mail">Nous contacter</string>
+    <string name="distance_alert_title">Permission requise</string>
+    <string name="distance_alert_content">Vous devez activer la permission de localisation dans vos paramètres !</string>
 </resources>
