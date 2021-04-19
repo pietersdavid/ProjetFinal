@@ -9,14 +9,11 @@ import com.example.projetfinal.databinding.ActivityWelcomeBinding
 
 private lateinit var binding: ActivityWelcomeBinding
 
+// Splash screen activity
 class WelcomeActivity : AppCompatActivity() {
 
+    // Splash screen time
     private val SPLASH_DISPLAY_LENGTH = 3000
-
-    // Commentaires
-    // Traductions
-    // Vidéo
-    // Thème noir
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +23,8 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Deprecated but doesn't found another solution and doesn't want to spend a lot of time on that
+        // Function to delay for splash screen
         Handler().postDelayed({ /* Create an Intent that will start the Menu-Activity. */
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)

@@ -9,4 +9,19 @@
     <string name="history_navbar_title">Historique</string>
     <string name="distance_navbar_title">Distance</string>
     <string name="parameters_navbar_title">Parametres</string>
+    <string name="menu_navbar_title">Application distance</string>
+    <string name="menu_distance">Distance de l\'ESEO</string>
+    <string name="menu_history">Historique des positions</string>
+    <string name="menu_history_toast">Impossible d\'afficher l\'historique sans valeurs</string>
+    <string name="distance_save_text">Sauvegarder</string>
+    <string name="distance_add_toast">Position ajoutée !</string>
+    <string name="distance_distance_text">Distance de l\'ESEO</string>
+    <string name="distance_impossible_location">Localisation impossible</string>
+    <string name="history_reset_button">Vider l\'historique</string>
+    <string name="settings_navbar_title">Paramètres</string>
+    <string name="settings_recycler_settings">Paramètres</string>
+    <string name="settings_recycler_location_parameters">Paramètres de localisation</string>
+    <string name="settings_recycler_location_eseo">Position de l\'ESEO</string>
+    <string name="settings_recycler_website">Site web de l\'ESEO</string>
+    <string name="settings_recycler_mail">Nous contacter</string>
 </resources>

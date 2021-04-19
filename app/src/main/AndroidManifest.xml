@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.HistoryActivity" />
-        <activity android:name=".ui.ParametersActivity" />
+        <activity android:name=".ui.SettingsActivity" />
         <activity android:name=".ui.DistanceActivity" />
         <activity android:name=".ui.MenuActivity" />
     </application>
